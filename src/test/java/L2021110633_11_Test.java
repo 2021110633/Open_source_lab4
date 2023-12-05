@@ -38,7 +38,7 @@ public class L2021110633_11_Test {
         real_result.add(r1);
         real_result.add(r2);
         real_result.add(r3);
-        //real_result.add(r4);
+        real_result.add(r4);
         assertEquals(real_result,result);
 
     }
