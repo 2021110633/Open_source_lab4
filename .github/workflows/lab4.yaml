@@ -1,5 +1,7 @@
 name: tests
-on: push
+on:
+  schedule:
+    - cron: '*/1  * * * *'  --- 每分钟跑一次
 jobs:
   run_tests:
     runs-on: ubuntu-latest
@@ -18,3 +20,13 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Run tests with Maven
         run: mvn -B test --file pom.xml
+               - name: Run merge script
+               uses: klay-ke/auto-merge-pr@master  --- 该地址以后可能会改
+               id: merge-pr
+               with:
+                 send-to-dingtalk-group: true
+                 dingtalk-access-token: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
+                 dingtalk-secret: ${{ secrets.DINGTALK_SECRET }}
+                 maintainer-team-name: ${{ secrets.MAINTAINER_TEAM_NAME }}
+                 gh-token: ${{ secrets.GH_TOKEN }}
+                 ci-command: 'bash ./build.sh'
