@@ -1,4 +1,4 @@
-# Use GitHub Actions to automatically merge pull requests
+# Use GitHub Actions to automatically merge pull requests，完美
 name: automerge
 on:
   pull_request:
