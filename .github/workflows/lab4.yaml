@@ -1,7 +1,6 @@
 name: tests
 on:
-  schedule:
-    - cron: '* */1 * * *'  --- 每小时跑一次
+  push
 jobs:
   run_tests:
     runs-on: ubuntu-latest
